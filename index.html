@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hola Odyl</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #567d91, #c4fafa);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: white;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        button {
+            font-size: 18px;
+            padding: 12px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 25px;
+            background: #58b4ff;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+        button:hover {
+            transform: scale(1.1);
+            background: #4078c0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1 id="message">Hola Odyl</h1>
+    <button id="firstButton" onclick="changeMessage()">Presiona aquí</button>
+    <button id="secondButton" onclick="showThirdButton()" style="display:none;">Presiona aquí</button>
+    <button id="thirdButton" onclick="redirectToYouTube()" style="display:none;">YouTube</button>
+    
+    <script>
+        document.getElementById("firstButton").style.display = "block";
+
+        function changeMessage() {
+            let message = document.getElementById("message");
+            message.textContent = "¿Cómo estás?";
+            message.style.animation = "fadeIn 1.5s ease-in-out";
+            document.getElementById("firstButton").style.display = "none";
+            document.getElementById("secondButton").style.display = "block";
+        }
+
+        function showThirdButton() {
+            redirectToYouTube();
+        }
+
+        function redirectToYouTube() {
+            window.location.href = "https://www.youtube.com/shorts/fVBlEfdtX7Q";
+        }
+    </script>
+</body>
+</html>
