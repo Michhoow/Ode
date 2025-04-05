@@ -1,95 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Animada</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
-
-        body {
-            margin: 0;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(45deg, #ececec, #f7f7f7);
-            animation: gradientBG 5s infinite alternate;
-            position: relative;
-        }
-
-        @keyframes gradientBG {
-            0% {
-                background-position: left;
-            }
-            100% {
-                background-position: right;
-            }
-        }
-
-        .button {
-            padding: 15px 30px;
-            margin: 20px;
-            font-size: 18px;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: transform 0.2s, background-color 0.3s;
-            font-weight: 400;
-        }
-
-        .button:hover {
-            transform: scale(1.1);
-        }
-
-        .btn1 {
-            background-color: #6c757d;
-            color: white;
-        }
-
-        .btn2 {
-            background-color: #495057;
-            color: white;
-        }
-
-        h1 {
-            color: #333;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Animaciones de formas */
-        .shape {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background-color: rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            animation: floatShape 10s infinite alternate ease-in-out;
-        }
-
-        @keyframes floatShape {
-            0% {
-                transform: translateY(0px) translateX(0px) rotate(0deg);
-            }
-            100% {
-                transform: translateY(-100px) translateX(50px) rotate(360deg);
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Eres un alien? — Test de Identidad Cósmica</title>
+  <style>
+    body {
+      background: radial-gradient(circle, #1b0033, #000);
+      color: #00ffcc;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .question {
+      margin: 1.5rem 0;
+    }
+    button {
+      background-color: #00ffcc;
+      color: #1b0033;
+      border: none;
+      padding: 1rem 2rem;
+      margin-top: 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.05);
+    }
+    #result {
+      display: none;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      background: #111;
+      padding: 2rem;
+      border-radius: 12px;
+    }
+    #alien-btn {
+      margin-top: 1.5rem;
+      background-color: #ff00cc;
+    }
+  </style>
 </head>
 <body>
-    <div class="shape" style="top: 10%; left: 10%; width: 80px; height: 80px;"></div>
-    <div class="shape" style="top: 50%; left: 80%;"></div>
-    <div class="shape" style="top: 80%; left: 30%; width: 60px; height: 60px;"></div>
-    <div class="shape" style="top: 20%; left: 60%; width: 100px; height: 100px;"></div>
+  <h1>🛸 ¿Eres un alien? — Test de Identidad Cósmica 👽</h1>
+  <form id="alien-form">
+    <div class="question">
+      <p>¿Te gusta el olor de la lluvia?</p>
+      <label><input type="radio" name="q1" required> Obvio, soy humana… creo.</label><br>
+      <label><input type="radio" name="q1"> Nunca lo he olido desde Saturno.</label><br>
+      <label><input type="radio" name="q1"> Solo si huele a carne molida.</label>
+    </div>
 
-    <h1>Toca aquí para ver el restaurante</h1>
-    <button class="button btn1" onclick="window.location.href='https://www.tiktok.com/@supernenoman/video/7245006806919941382?q=Fritura%20la%20critica&t=1743572136561'">Toca aquí</button>
-    
-    <h1>También toca aquí</h1>
-    <button class="button btn2" onclick="window.location.href='https://www.instagram.com/reel/DHfSyaNoXOq/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=='">Pulsa aquí</button>
+    <div class="question">
+      <p>¿Tienes más de 5 calcetines sin par?</p>
+      <label><input type="radio" name="q2" required> Tengo un imperio de calcetines solitarios.</label><br>
+      <label><input type="radio" name="q2"> ¡No! Soy un adulto funcional (Más o menos)</label><br>
+      <label><input type="radio" name="q2"> ¿Qué son los calcetines?</label>
+    </div>
+
+    <div class="question">
+      <p>¿Tienes la cabeza grande?</p>
+      <label><input type="radio" name="q3" required> Si, muy grande.</label><br>
+      <label><input type="radio" name="q3"> Solo un poco.</label><br>
+      <label><input type="radio" name="q3"> ¿Que es una cabeza en este planeta?</label>
+    </div>
+
+    <div class="question">
+      <p>¿Alguna vez has sentido que podías mover cosas con la mente?</p>
+      <label><input type="radio" name="q4" required> Sí, pero solo cucharas.</label><br>
+      <label><input type="radio" name="q4"> No, pero a veces las cosas desaparecen solas.</label><br>
+      <label><input type="radio" name="q4"> Shhh... no puedo revelar eso.</label>
+    </div>
+
+    <div class="question">
+      <p>Elige un sonido para describirte:</p>
+      <label><input type="radio" name="q5" required> Bloop</label><br>
+      <label><input type="radio" name="q5"> Skrrt</label><br>
+      <label><input type="radio" name="q5"> Ñeee</label><br>
+      <label><input type="radio" name="q5"> Miau cósmico</label>
+    </div>
+
+    <button type="submit">Ver resultado cósmico 🚀</button>
+  </form>
+
+  <div id="result">
+    <h2>👽 Resultado: 87% Alien, 13% Humana.</h2>
+    <p>¡Bienvenida al club galáctico!<br>
+    Pero tranquila, ser alien está de moda.<br>
+    Tu nave interestelar llega en 3... 2... 1...</p>
+    <button id="alien-btn" onclick="window.location.href='https://www.instagram.com/p/DBFG1AhSZu2/';">Presiona aquí</button>
+  </div>
+
+  <script>
+    const form = document.getElementById("alien-form");
+    const result = document.getElementById("result");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      form.style.display = "none";
+      result.style.display = "block";
+      const audio = new Audio("https://www.soundjay.com/button/beep-07.wav");
+      audio.play();
+    });
+  </script>
 </body>
 </html>
