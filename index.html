@@ -1,113 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>¿Eres un alien? — Test de Identidad Cósmica</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canción Odyl</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <style>
     body {
-      background: radial-gradient(circle, #1b0033, #000);
-      color: #00ffcc;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      font-family: 'Pacifico', cursive;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #fff;
       text-align: center;
-      padding: 2rem;
+      animation: fadeIn 2s ease-in-out;
     }
+
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+      animation: pop 1.5s ease;
     }
-    .question {
-      margin: 1.5rem 0;
+
+    audio {
+      margin-bottom: 2rem;
+      width: 300px;
+      max-width: 90%;
+      animation: aparecer 1.5s ease forwards;
     }
+
     button {
-      background-color: #00ffcc;
-      color: #1b0033;
-      border: none;
       padding: 1rem 2rem;
-      margin-top: 2rem;
-      font-size: 1rem;
+      background-color: #ffffff;
+      color: #a64ac9;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
       cursor: pointer;
-      border-radius: 10px;
-      transition: transform 0.2s;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      animation: aparecer 2s ease forwards;
     }
+
     button:hover {
+      background-color: #ffe4ff;
       transform: scale(1.05);
     }
-    #result {
-      display: none;
-      margin-top: 2rem;
-      font-size: 1.2rem;
-      background: #111;
-      padding: 2rem;
-      border-radius: 12px;
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-    #alien-btn {
-      margin-top: 1.5rem;
-      background-color: #ff00cc;
+
+    @keyframes pop {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body>
-  <h1>🛸 ¿Eres un alien? — Test de Identidad Cósmica 👽</h1>
-  <form id="alien-form">
-    <div class="question">
-      <p>¿Te gusta el olor de la lluvia?</p>
-      <label><input type="radio" name="q1" required> Obvio, soy humana… creo.</label><br>
-      <label><input type="radio" name="q1"> Nunca lo he olido desde Saturno.</label><br>
-      <label><input type="radio" name="q1"> Solo si huele a carne molida.</label>
-    </div>
-
-    <div class="question">
-      <p>¿Tienes más de 5 calcetines sin par?</p>
-      <label><input type="radio" name="q2" required> Tengo un imperio de calcetines solitarios.</label><br>
-      <label><input type="radio" name="q2"> ¡No! Soy un adulto funcional (Más o menos)</label><br>
-      <label><input type="radio" name="q2"> ¿Qué son los calcetines?</label>
-    </div>
-
-    <div class="question">
-      <p>¿Tienes la cabeza grande?</p>
-      <label><input type="radio" name="q3" required> Si, muy grande.</label><br>
-      <label><input type="radio" name="q3"> Solo un poco.</label><br>
-      <label><input type="radio" name="q3"> ¿Que es una cabeza en este planeta?</label>
-    </div>
-
-    <div class="question">
-      <p>¿Alguna vez has sentido que podías mover cosas con la mente?</p>
-      <label><input type="radio" name="q4" required> Sí, pero solo cucharas.</label><br>
-      <label><input type="radio" name="q4"> No, pero a veces las cosas desaparecen solas.</label><br>
-      <label><input type="radio" name="q4"> Shhh... no puedo revelar eso.</label>
-    </div>
-
-    <div class="question">
-      <p>Te identificas como un Michipan?</p>
-      <label><input type="radio" name="q5" required>Si</label><br>
-      <label><input type="radio" name="q5">Si</label><br>
-      <label><input type="radio" name="q5">Si</label><br>
-      <label><input type="radio" name="q5">No</label>
-    </div>
-
-    <button type="submit">Ver resultado cósmico 🚀</button>
-  </form>
-
-  <div id="result">
-    <h2>👽 Resultado: 87% Alien, 13% Humana.</h2>
-    <p>¡Bienvenida al club galáctico!<br>
-    Pero tranquila, ser alien está de moda.<br>
-    Tu nave interestelar llega en 3... 2... 1...</p>
-    <button id="alien-btn" onclick="window.location.href='https://www.instagram.com/p/DBFG1AhSZu2/';">Presiona aquí</button>
-  </div>
-
-  <script>
-    const form = document.getElementById("alien-form");
-    const result = document.getElementById("result");
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      form.style.display = "none";
-      result.style.display = "block";
-      const audio = new Audio("https://www.soundjay.com/button/beep-07.wav");
-      audio.play();
-    });
-  </script>
+  <h1>Canción Odyl 🎶</h1>
+  <audio controls>
+    <source src="song.mp3" type="audio/mp3">
+    Tu navegador no soporta la reproducción de audio.
+  </audio>
+  <a href="https://www.instagram.com/reel/DIDKMkesM1s/?utm_source=ig_web_copy_link" target="_blank">
+    <button>Presiona aquí cuando termines de escuchar lo de arriba.</button>
+  </a>
 </body>
 </html>
