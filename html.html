@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Eres un Alien, Alexa? 👽</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      background: linear-gradient(to bottom, #000000, #1a1a1a);
+      color: #00ffcc;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow-x: hidden;
+    }
+
+    h1, h2 {
+      text-align: center;
+      animation: floatText 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatText {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
+
+    .alien {
+      position: absolute;
+      font-size: 2rem;
+      animation: floatAlien 5s infinite linear;
+    }
+
+    @keyframes floatAlien {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px) rotate(10deg); }
+      100% { transform: translateY(0); }
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #00ffcc;
+    }
+
+    .question {
+      margin: 1.5rem 0;
+    }
+
+    .button {
+      background-color: #00ffcc;
+      border: none;
+      color: black;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 2rem;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #00c7a6;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .result {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    /* Random alien emojis floating */
+    .alien:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+    .alien:nth-child(2) { top: 20%; left: 80%; animation-delay: 1s; }
+    .alien:nth-child(3) { top: 50%; left: 10%; animation-delay: 2s; }
+    .alien:nth-child(4) { top: 70%; left: 75%; animation-delay: 3s; }
+    .alien:nth-child(5) { top: 90%; left: 40%; animation-delay: 4s; }
+  </style>
+</head>
+<body>
+
+  <!-- Alien Emojis Floating -->
+  <div class="alien">👽</div>
+  <div class="alien">🛸</div>
+  <div class="alien">👾</div>
+  <div class="alien">👽</div>
+  <div class="alien">🛸</div>
+
+  <h1>Alexa... ¿Eres un alienígena encubierta? 👽</h1>
+  <div class="container">
+    <p style="text-align: center;">Este es un test secreto solo para ti, Alexa. Responde sinceramente... o serás abducida 🛸</p>
+
+    <div class="question">
+      <p>1. ¿Sientes que nadie en este planeta te entiende, Alexa?</p>
+      <input type="radio" name="q1"> Sí<br>
+      <input type="radio" name="q1"> No
+    </div>
+
+    <div class="question">
+      <p>2. ¿Has tenido un “déjà vu” fuera de este mundo?</p>
+      <input type="radio" name="q2"> Sí<br>
+      <input type="radio" name="q2"> No
+    </div>
+
+    <div class="question">
+      <p>3. ¿Duermes menos de 4 horas y aún así estás full energía?</p>
+      <input type="radio" name="q3"> Sí<br>
+      <input type="radio" name="q3"> No
+    </div>
+
+    <div class="question">
+      <p>4. ¿Puedes sentir cuándo alguien va a escribirte antes de que pase?</p>
+      <input type="radio" name="q4"> Sí<br>
+      <input type="radio" name="q4"> No
+    </div>
+
+    <div class="question">
+      <p>5. ¿Odias el frío porque tu planeta original era más cálido?</p>
+      <input type="radio" name="q5"> Sí<br>
+      <input type="radio" name="q5"> No
+    </div>
+
+    <div class="question">
+      <p>6. ¿Tus ojos brillan con la luna llena, Alexa?</p>
+      <input type="radio" name="q6"> Sí<br>
+      <input type="radio" name="q6"> No
+    </div>
+
+    <button class="button" onclick="mostrarResultado()">Ver resultado alienígena</button>
+
+    <div id="resultado" class="result hidden">
+      <h2>Resultado: Alexa... ¡ERES 110% ALIEN! 🛸</h2>
+      <p>No te preocupes... tu secreto está seguro con nosotros 👁️</p>
+      <p>Haz clic aquí para obtener tu <strong>certificado galáctico oficial</strong>:</p>
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+        <button class="button">Haz clic aquí, Alexa 👽</button>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function mostrarResultado() {
+      document.getElementById("resultado").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
